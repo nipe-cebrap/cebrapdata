@@ -4,6 +4,8 @@
 # cebrapdata
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/nipe-cebrap/cebrapdata/workflows/R-CMD-check/badge.svg)](https://github.com/nipe-cebrap/cebrapdata/actions)
 <!-- badges: end -->
 
 `cebrapdata` is a simple R client for the
