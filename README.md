@@ -31,14 +31,28 @@ Under the hood, `cebrapdata` uses
 manage connections, abstract queries and fetch data from Cebrap’s
 Database, making it easy to ingest Brazilian legislative data from R.
 
-To use the package, users need to first download the appropriate MS-SQL
-Server JBDC driver from the Microsoft’s website. To speed up this
-proccess, use the `cebrapdata`’s `download_driver()` function to
-download and save a driver in your local working directory:
-
 ``` r
 library(cebrapdata)
-download_driver()
+```
+
+## Requirements
+
+To use the package, users need to select the appropriate MS-SQL Server
+JBDC driver from
+[Microsoft](https://docs.microsoft.com/pt-br/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+To speed up this proccess, `cebrapdata` already provides three different
+driver option:
+
+-   `mssql-jdbc-9.2.1.jre8.jar`;
+-   `mssql-jdbc-9.2.1.jre11.jar`; and
+-   `mssql-jdbc-9.2.1.jre15.jar`
+
+By default, `get_cebrap_table` and similar functions use `jre15` version
+to manage the connection to Cebrap’s database, but this can be changed
+with the `driver` argument:
+
+``` r
+# exemplae
 ```
 
 …
