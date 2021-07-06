@@ -11,6 +11,13 @@
 #'
 #' @note Currently, `get_cebrap_table()` only works with the `Congresso_BE` database.
 #'
+#' @examples
+#' \dontrun{
+#' # Request a table
+#' conn <- set_connection(login = "login", password = "pass")
+#' senadores <- get_cebrap_table(conn, "tbl_Sen")
+#' }
+#'
 #' @export
 
 get_cebrap_table <- function(conn, table){
@@ -28,6 +35,14 @@ get_cebrap_table <- function(conn, table){
 #' Cebrap's Brazilian Legislative Database.
 #'
 #' @param conn A JDBC connection object created by the \code{\link{set_connection}} function
+#'
+#' @examples
+#' \dontrun{
+#'
+#' # List alll tables
+#' conn <- set_connection(login = "login", password = "pass")
+#' list_cebrap_tables(conn)
+#' }
 #'
 #' @export
 

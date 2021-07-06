@@ -21,3 +21,11 @@ of the columns.
 \note{
 Currently, \code{get_cebrap_table()} only works with the \code{Congresso_BE} database.
 }
+\examples{
+\dontrun{
+# Request a table
+conn <- set_connection(login = "login", password = "pass")
+senadores <- get_cebrap_table(conn, "tbl_Sen")
+}
+
+}

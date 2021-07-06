@@ -18,7 +18,7 @@ store_credentials <- function(login, password){
 
   Sys.setenv(CEBRAP_LOGIN = login)
   Sys.setenv(CEBRAP_LOGIN = password)
-  cli::cli_alert_success("Credentials succesfully stored.")
+  cli::cli_alert_success("Credentials stored successfully.")
 }
 
 

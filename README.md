@@ -40,7 +40,7 @@ store their credentials using the `store_credentials()` function:
 library(cebrapdata)
 
 # Set credentials
-store_credentials(login = "meulogin", password = "minhasenha")
+store_credentials(login = "mylogin", password = "mypass")
 ```
 
 R will store your credentials as environment variables so there will be
@@ -82,7 +82,7 @@ JBDC driver from
 
 -   `mssql-jdbc-9.2.1.jre8.jar`;
 -   `mssql-jdbc-9.2.1.jre11.jar`; and
--   `mssql-jdbc-9.2.1.jre15.jar`
+-   `mssql-jdbc-9.2.1.jre15.jar`.
 
 By default, `get_cebrap_table` and similar functions use `jre15` version
 to manage the connection to Cebrap’s database, but this can be changed

@@ -44,10 +44,11 @@ To start using the package, it is recommended that users create and store their 
 library(cebrapdata)
 
 # Set credentials
-store_credentials(login = "meulogin", password = "minhasenha")
+store_credentials(login = "mylogin", password = "mypass")
 ```
 
 R will store your credentials as environment variables so there will be no need to re-enter these information again in the future (besides, this is a safer way to store credentials). After that, make a connection to Cebrap's Database with `set_connection()` and start fetching data with `get_cebrap_table()`:
+
 
 ```{r, eval=FALSE}
 # Set connection
@@ -73,7 +74,7 @@ To use the package, users need to select the appropriate MS-SQL Server JBDC driv
 
 - `mssql-jdbc-9.2.1.jre8.jar`;
 - `mssql-jdbc-9.2.1.jre11.jar`; and
-- `mssql-jdbc-9.2.1.jre15.jar`
+- `mssql-jdbc-9.2.1.jre15.jar`.
 
 By default, `get_cebrap_table` and similar functions use `jre15` version to manage the connection to Cebrap's database, but this can be changed with the `driver` argument:
 

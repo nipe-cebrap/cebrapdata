@@ -13,3 +13,12 @@ list_cebrap_tables(conn)
 \code{list_cebrap_tables()} queries and shows all tables available for fetching in the
 Cebrap's Brazilian Legislative Database.
 }
+\examples{
+\dontrun{
+
+# List alll tables
+conn <- set_connection(login = "login", password = "pass")
+list_cebrap_tables(conn)
+}
+
+}
