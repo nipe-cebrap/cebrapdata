@@ -1,6 +1,6 @@
 Package: cebrapdata
 Title: An R Client to Cebrap's Brazilian Legislative Database
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     c(
     person("Fernando", "Meireles", , "fmeireles@ufmg.br", c("aut", "cre"), c(ORCID = "0000-0002-7027-2058"))
