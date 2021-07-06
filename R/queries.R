@@ -1,0 +1,37 @@
+#' Get tables from Cebrap's Database
+#'
+#' `get_cebrap_table()` fetches tables from the Cebrap's Brazilian Legislative Database.
+#' To use it, users must provide the name of an actual table in the database and
+#' the function will handle the SQL queries under the hood. Is it also possible
+#' to customize the function call to select just a sample of rows or the name
+#' of the columns.
+#'
+#' @param conn A JDBC connection object created by the \code{\link{set_connection}} function
+#' @param table A `string` with the name of an existing table in Cebrap's Database
+#'
+#' @note Currently, `get_cebrap_table()` only works with the `Congresso_BE` database.
+#'
+#' @export
+
+get_cebrap_table <- function(conn, table){
+
+  # Get table
+  query <- glue::glue("SELECT * FROM Congresso_BE.LEGISLATIVO.{table}")
+  out <- RJDBC::dbGetQuery(conn, query)
+  return(out)
+}
+
+
+#' List tables from Cebrap's Database
+#'
+#' `list_cebrap_tables()` queries and shows all tables available for fetching in the
+#' Cebrap's Brazilian Legislative Database.
+#'
+#' @param conn A JDBC connection object created by the \code{\link{set_connection}} function
+#'
+#' @export
+
+list_cebrap_tables <- function(conn){
+
+  RJDBC::dbGetQuery(conn, "SELECT * FROM Congresso_BE.INFORMATION_SCHEMA.TABLES")
+}
