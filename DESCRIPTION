@@ -1,0 +1,14 @@
+Package: cebrapdata
+Title: An R Client to Cebrap's Brazilian Legislative Database
+Version: 0.0.0.9000
+Authors@R: 
+    c(
+    person("Fernando", "Meireles", , "fmeireles@ufmg.br", c("aut", "cre"), c(ORCID = "0000-0002-7027-2058"))
+    )
+Description: Provides functions and utilities to query, download, and store data from the 
+    Cebrap's Brazilian Legislative MS-SQL Server Database from R.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
