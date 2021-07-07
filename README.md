@@ -8,6 +8,8 @@
 [![R-CMD-check](https://github.com/nipe-cebrap/cebrapdata/workflows/R-CMD-check/badge.svg)](https://github.com/nipe-cebrap/cebrapdata/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/nipe-cebrap/cebrapdata/branch/main/graph/badge.svg)](https://codecov.io/gh/nipe-cebrap/cebrapdata?branch=main)
+[![Travis build
+status](https://travis-ci.com/nipe-cebrap/cebrapdata.svg?branch=main)](https://travis-ci.com/nipe-cebrap/cebrapdata)
 <!-- badges: end -->
 
 `cebrapdata` is a simple R client for the

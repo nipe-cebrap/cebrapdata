@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/nipe-cebrap/cebrapdata/workflows/R-CMD-check/badge.svg)](https://github.com/nipe-cebrap/cebrapdata/actions)
 [![Codecov test coverage](https://codecov.io/gh/nipe-cebrap/cebrapdata/branch/main/graph/badge.svg)](https://codecov.io/gh/nipe-cebrap/cebrapdata?branch=main)
+[![Travis build status](https://travis-ci.com/nipe-cebrap/cebrapdata.svg?branch=main)](https://travis-ci.com/nipe-cebrap/cebrapdata)
 <!-- badges: end -->
 
 `cebrapdata` is a simple R client for the [Cebrap](https://cebrap.org.br/)'s Brazilian Legislative Database, the main and oldest specialized source of legislative data in Brazil. With the package, querying, fetching, and storing data locally could be done fast with a few lines of code from R.
