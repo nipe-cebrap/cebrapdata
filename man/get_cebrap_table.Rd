@@ -4,12 +4,17 @@
 \alias{get_cebrap_table}
 \title{Get tables from Cebrap's Database}
 \usage{
-get_cebrap_table(conn, table)
+get_cebrap_table(conn, table, head = TRUE, verbose = TRUE)
 }
 \arguments{
 \item{conn}{A JDBC connection object created by the \code{\link{set_connection}} function}
 
 \item{table}{A \code{string} with the name of an existing table in Cebrap's Database}
+
+\item{head}{Should the function return only the five first rows from the table? To
+save server resources, this defaults to \code{TRUE}}
+
+\item{verbose}{Should the function display messages? Defaults to \code{TRUE}}
 }
 \description{
 \code{get_cebrap_table()} fetches tables from the Cebrap's Brazilian Legislative Database.

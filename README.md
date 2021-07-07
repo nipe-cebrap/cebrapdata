@@ -45,9 +45,10 @@ store_credentials(login = "mylogin", password = "mypass")
 
 R will store your credentials as environment variables so there will be
 no need to re-enter these information again in the future (besides, this
-is a safer way to store credentials). After that, make a connection to
-Cebrap’s Database with `set_connection()` and start fetching data with
-`get_cebrap_table()`:
+avoids accidentally sharings of scripts with credentials).
+
+After that, make a connection to Cebrap’s Database with
+`set_connection()` and start fetching data with `get_cebrap_table()`:
 
 ``` r
 # Set connection
@@ -55,6 +56,67 @@ conn <- set_connection()
 
 # Request a table
 senadores <- get_cebrap_table(conn, "tbl_Sen")
+```
+
+The above code should return a `data.frame` with only 5 rows to save
+server resources. To download a full table, set the argument `head` to
+`FALSE`:
+
+``` r
+# Same request, full table
+senadores <- get_cebrap_table(conn, "tbl_Sen", head = FALSE)
+```
+
+### Other utilities
+
+To consult the available tables in the Cebrap’s Database, use:
+
+``` r
+# List all tables in Cebrap's database
+list_cebrap_tables(conn)
+```
+
+In case you did not stored your credentials using `store_credentials`,
+these could also be passed directly to the function call (note that this
+method does not store your credentials for future uses):
+
+``` r
+# Pass credentials
+conn <- set_connection(login = "mylogin", password = "mypass")
+```
+
+### JDBC driver
+
+To use `cebrapdata`, users must select an appropriate MS-SQL Server JBDC
+driver for your operational system from
+[Microsoft](https://docs.microsoft.com/pt-br/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+`cebrapdata` already provides three different option:
+
+-   `mssql-jdbc-9.2.1.jre8.jar`;
+-   `mssql-jdbc-9.2.1.jre11.jar` (default); and
+-   `mssql-jdbc-9.2.1.jre15.jar`.
+
+By default, `get_cebrap_table` and similar functions use `jre11` version
+to manage the connection to Cebrap’s database, but this can be changed
+with the `driver` argument:
+
+``` r
+# Change driver
+conn <- set_connection(driver = "jre15")
+```
+
+As a rule of thumb, you should stick with a driver that matches your
+Java Runtime Environment (see [below](#requirements)): if you have JDK
+11, use the driver `jre11`.
+
+If none of these default drivers work for you, there is the option to
+download a different one from [Microsoft’s
+website](https://docs.microsoft.com/pt-br/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15),
+save it on your working directory and use its filepath instead:
+
+``` r
+# Change driver
+conn <- set_connection(driver = "another-jdbc-driver.jar")
 ```
 
 ## Requirements
@@ -65,43 +127,32 @@ JDK](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.ht
 must be previously installed on your computer or server (click on these
 links to install the apropriate version to your system).
 
-In case you face a problem installing these dependencies or the
-`cebrapdata`, submit an issue with more details.
+If you use Windows, check your Java’s version by following this
+\[guide\]([Microsoft](https://docs.microsoft.com/pt-br/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+On linux, execute the following from the terminal:
+
+``` bash
+java -version
+```
+
+If you face a problem installing `cebrapdata` or one of its
+dependencies, please [submit an
+issue](https://github.com/nipe-cebrap/cebrapdata/issues) with more
+details.
 
 ### Other R packages
 
-To work, `cebrapdata` depends on
+`cebrapdata` depends on
 [rJava](https://cran.r-project.org/web/packages/rJava/index.html) and
 RJDBC, which should be installed automacally when installing
 `cebrapdata` from R.
 
-To use the package, users need to select the appropriate MS-SQL Server
-JBDC driver from
-[Microsoft](https://docs.microsoft.com/pt-br/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
-`cebrapdata` already provides three different driver option:
+## Note
 
--   `mssql-jdbc-9.2.1.jre8.jar`;
--   `mssql-jdbc-9.2.1.jre11.jar`; and
--   `mssql-jdbc-9.2.1.jre15.jar`.
+In this current implementation, `cebrapdata` is only able to query and
+fetch data from the `Congresso_NE` database.
 
-By default, `get_cebrap_table` and similar functions use `jre15` version
-to manage the connection to Cebrap’s database, but this can be changed
-with the `driver` argument:
-
-``` r
-# Change driver
-conn <- set_connection(driver = "jre15")
-```
-
-If none of these default drivers work for you, there is the option to
-download a different one and use its filepath instead:
-
-``` r
-# Change driver
-conn <- set_connection(driver = "another-jdbc-driver.jar")
-```
-
-# Credits
+## Credits
 
 [NIPE-Cebrap](https://cebrap.org.br/nucleos/nucleo-instituicoes-politicas-e-eleicoes/)
 and [Fapesp](https://fapesp.br/) (proccess number \#).

@@ -45,6 +45,3 @@ set_connection <- function(login = NULL, password = NULL, driver = NULL, verbose
 # Function for disconection
 remove_connection <- function(conn) NULL
 
-
-
-

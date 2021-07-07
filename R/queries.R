@@ -8,6 +8,9 @@
 #'
 #' @param conn A JDBC connection object created by the \code{\link{set_connection}} function
 #' @param table A `string` with the name of an existing table in Cebrap's Database
+#' @param head Should the function return only the five first rows from the table? To
+#' save server resources, this defaults to `TRUE`
+#' @param verbose Should the function display messages? Defaults to `TRUE`
 #'
 #' @note Currently, `get_cebrap_table()` only works with the `Congresso_BE` database.
 #'
@@ -20,10 +23,15 @@
 #'
 #' @export
 
-get_cebrap_table <- function(conn, table){
+get_cebrap_table <- function(conn, table, head = TRUE, verbose = TRUE){
 
-  # Get table
-  query <- glue::glue("SELECT * FROM Congresso_BE.LEGISLATIVO.{table}")
+  # Create query
+  if(verbose) cli::cli_alert_info("Fetching data from {cli::col_green('Cebrap')}'s Database...")
+
+  if(head) query <- glue::glue("SELECT TOP 5 * FROM Congresso_BE.LEGISLATIVO.{table}")
+  else query <- glue::glue("SELECT * FROM Congresso_BE.LEGISLATIVO.{table}")
+
+  # Fetch data and return
   out <- RJDBC::dbGetQuery(conn, query)
   return(out)
 }
