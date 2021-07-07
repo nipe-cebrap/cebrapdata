@@ -16,6 +16,18 @@
 
 store_credentials <- function(login, password){
 
+  # Inputs
+  if(!is.character(login)){
+
+    stop(cli::cli_alert_danger("'login' must be string.", id = "Credential failure."))
+  }
+
+  if(!is.character(password) & !is.numeric(password)){
+
+    stop(cli::cli_alert_danger("'password' must be string or numeric.", id = "Credential failure."))
+  }
+
+  # Create env vars
   Sys.setenv(CEBRAP_LOGIN = login)
   Sys.setenv(CEBRAP_PWD = password)
   cli::cli_alert_success("Credentials stored successfully.")
@@ -60,8 +72,5 @@ get_cebrap_credentials <- function(login, password){
     # Return auth credentials
     return(auth)
 }
-
-
-
 
 

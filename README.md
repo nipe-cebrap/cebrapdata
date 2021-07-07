@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/nipe-cebrap/cebrapdata/workflows/R-CMD-check/badge.svg)](https://github.com/nipe-cebrap/cebrapdata/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/nipe-cebrap/cebrapdata/branch/main/graph/badge.svg)](https://codecov.io/gh/nipe-cebrap/cebrapdata?branch=main)
 <!-- badges: end -->
 
 `cebrapdata` is a simple R client for the
@@ -45,7 +47,7 @@ store_credentials(login = "mylogin", password = "mypass")
 
 R will store your credentials as environment variables so there will be
 no need to re-enter these information again in the future (besides, this
-avoids accidentally sharings of scripts with credentials).
+avoids accidental sharings of scripts with credentials).
 
 After that, make a connection to Cebrap’s Database with
 `set_connection()` and start fetching data with `get_cebrap_table()`:
@@ -128,8 +130,8 @@ must be previously installed on your computer or server (click on these
 links to install the apropriate version to your system).
 
 If you use Windows, check your Java’s version by following this
-\[guide\]([Microsoft](https://docs.microsoft.com/pt-br/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
-On linux, execute the following from the terminal:
+[guide](https://docs.microsoft.com/pt-br/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+On unix systems, execute the following from the terminal:
 
 ``` bash
 java -version
@@ -140,13 +142,6 @@ dependencies, please [submit an
 issue](https://github.com/nipe-cebrap/cebrapdata/issues) with more
 details.
 
-### Other R packages
-
-`cebrapdata` depends on
-[rJava](https://cran.r-project.org/web/packages/rJava/index.html) and
-RJDBC, which should be installed automacally when installing
-`cebrapdata` from R.
-
 ## Note
 
 In this current implementation, `cebrapdata` is only able to query and
@@ -155,4 +150,4 @@ fetch data from the `Congresso_NE` database.
 ## Credits
 
 [NIPE-Cebrap](https://cebrap.org.br/nucleos/nucleo-instituicoes-politicas-e-eleicoes/)
-and [Fapesp](https://fapesp.br/) (proccess number \#).
+and [Fapesp](https://fapesp.br/) (proccess number 2021/01393-2).

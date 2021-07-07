@@ -1,7 +1,3 @@
-# ---
-# UTILS
-# ---
-
 
 # Validate JDBC drivers
 check_driver <- function(driver){
